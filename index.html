@@ -4,37 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>egminy</title>
-    <!-- 고전 학술용 Cardo 폰트 불러오기 -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cardo:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <!-- Pretendard 폰트 불러오기 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://jsdelivr.net" />
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body, html {
-            height: 100%; width: 100%; overflow: hidden;
-            background-color: #ffffff;
-            font-family: 'Cardo', serif; /* 정통 고서 스타일 서체 적용 */
-            display: flex; justify-content: center; align-items: center;
+        /* 기본 여백 제거 및 화면 꽉 차게 설정 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .container { display: flex; flex-direction: column; gap: 35px; text-align: center; }
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* 스크롤 방지 */
+            background-color: #ffffff;
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        /* 중앙 정렬 컨테이너 */
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* 글자 사이의 넓은 여백 */
+            text-align: center;
+        }
+        /* 텍스트 링크 스타일 */
         .link-text {
-            font-size: 1.3rem;
-            font-style: italic; /* 이탤릭체를 쓰면 훨씬 더 고전적인 서신 느낌이 납니다 */
-            color: #1a1a1a;
-            text-decoration: none;
-            letter-spacing: 0.05em;
+            font-size: 1.2rem;
+            font-weight: 300; /* 얇은 두께로 세련되게 */
+            color: #1d1d1f; /* 부드러운 블랙 */
+            text-decoration: none; /* 밑줄 제거 */
+            letter-spacing: 0.05em; /* 자간을 넓혀 고급스럽게 */
             transition: color 0.3s ease;
         }
-        .link-text:active { color: #b8860b; /* 터치 시 고풍스러운 다크골드 색상으로 변경 */ }
+        /* 터치하거나 마우스를 올렸을 때 은은하게 흐려지는 효과 */
+        .link-text:active, .link-text:hover {
+            color: #86868b;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- href="#" 자리에 나중에 이동할 링크를 넣으시면 됩니다 -->
         <a href="#" class="link-text">Buy</a>
         <a href="#" class="link-text">Contact</a>
     </div>
 
 </body>
 </html>
+
 
