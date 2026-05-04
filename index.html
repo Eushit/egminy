@@ -1,49 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>egminy</title>
+    <!-- 고전 학술용 Cardo 폰트 불러오기 -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cardo:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body, html {
             height: 100%; width: 100%; overflow: hidden;
             background-color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Cardo', serif; /* 정통 고서 스타일 서체 적용 */
             display: flex; justify-content: center; align-items: center;
         }
-        .container { display: flex; flex-direction: column; gap: 45px; text-align: center; }
+        .container { display: flex; flex-direction: column; gap: 35px; text-align: center; }
         .link-text {
-            font-size: 1.1rem;
-            font-weight: 300;
-            color: #1d1d1f;
-            text-decoration: none;
-            letter-spacing: 0.15em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px; /* 글자와 기호 사이 간격 */
-            transition: opacity 0.3s ease;
-        }
-        .link-text:active { opacity: 0.5; }
-        /* 고전 기호 스타일 */
-        .symbol {
             font-size: 1.3rem;
-            color: #86868b; /* 기호는 조금 연하게 */
+            font-style: italic; /* 이탤릭체를 쓰면 훨씬 더 고전적인 서신 느낌이 납니다 */
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
         }
+        .link-text:active { color: #b8860b; /* 터치 시 고풍스러운 다크골드 색상으로 변경 */ }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 유니코드 특수기호를 활용해 원시적이고 신비로운 느낌 연출 -->
-        <a href="#" class="link-text">
-            <span class="symbol">⌬</span> BUY <span class="symbol">⌬</span>
-        </a>
-        <a href="#" class="link-text">
-            <span class="symbol">𐇐</span> CONTACT <span class="symbol">𐇐</span>
-        </a>
+        <a href="#" class="link-text">Buy</a>
+        <a href="#" class="link-text">Contact</a>
     </div>
 
 </body>
