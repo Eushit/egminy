@@ -4,86 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>egminy</title>
-    <!-- Pretendard 폰트 불러오기 -->
     <link rel="stylesheet" as="style" crossorigin href="https://jsdelivr.net" />
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body, html {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
             background-color: #ffffff;
             font-family: 'Pretendard', -apple-system, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: #1d1d1f;
         }
-        .container {
+        /* 제품 리스트 컨테이너 */
+        .product-list {
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            text-align: center;
+            gap: 30px; /* 제품 간의 간격 */
+            padding: 40px 20px;
         }
-        .link-text {
-            font-size: 1.2rem;
-            font-weight: 250; /* 얇고 세련된 두께 */
-            color: #1d1d1f;
-            text-decoration: none;
-            letter-spacing: 0.05em;
-            transition: color 0.3s ease, opacity 0.3s ease;
+        /* 개별 제품 가로 레이아웃 */
+        .product-card {
+            display: flex;
+            align-items: center; /* 사진과 텍스트 중앙 정렬 */
+            gap: 20px; /* 사진과 이름 사이의 간격 */
             cursor: pointer;
-            user-select: none; /* 텍스트 드래그 방지 */
+            text-decoration: none;
         }
-        .link-text:active, .link-text:hover {
-            color: #86868b;
+        /* 제품 사진 스타일 */
+        .product-image {
+            width: 80px; /* 사진 크기를 작고 정갈하게 조절 */
+            height: 80px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background-color: #f5f5f7;
+            transition: opacity 0.3s;
         }
-        /* 이메일 폰트 크기를 살짝 줄여 한 줄에 예쁘게 담기도록 조절 */
-        #contact-target {
-            font-size: 1.1rem;
+        .product-card:active .product-image {
+            opacity: 0.7;
+        }
+        /* 제품 이름 스타일 */
+        .product-name {
+            font-size: 1rem;
+            font-weight: 320; /* 확정하신 세련된 두께 */
+            color: #1d1d1f;
+            letter-spacing: 0.02em;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Buy 버튼 -->
-        <a href="#" class="link-text" id="buy-btn">Buy</a>
-        
-        <!-- Contact / 이메일 전환 버튼 -->
-        <div class="link-text" id="contact-target" onclick="toggleContact()">Contact</div>
+    <div class="product-list">
+        <!-- 첫 번째 제품 -->
+        <div class="product-card">
+            <!-- 이미지 준비 전까지는 회색 박스로 보입니다 -->
+            <img src="1.jpeg" alt="Light Earring" class="product-image">
+            <p class="product-name">Light Earring</p>
+        </div>
+
+        <!-- 제품 추가 시 아래 블록 복사 -->
+        <!-- 
+        <div class="product-card">
+            <img src="이미지주소" class="product-image">
+            <p class="product-name">Next Product</p>
+        </div> 
+        -->
     </div>
-
-    <script>
-        // 현재 상태를 저장하는 변수
-        let isEmailVisible = false;
-
-        function toggleContact() {
-            const target = document.getElementById('contact-target');
-            
-            // 글자가 바뀔 때 투명도를 0으로 만들어 부드러운 전환 효과를 줍니다.
-            target.style.opacity = '0';
-            
-            setTimeout(() => {
-                if (!isEmailVisible) {
-                    target.innerText = 'miny6953@gmail.com';
-                    isEmailVisible = true;
-                } else {
-                    target.innerText = 'Contact';
-                    isEmailVisible = false;
-                }
-                // 글자 변경 후 다시 선명하게 만듭니다.
-                target.style.opacity = '1';
-            }, 200); // 0.2초 딜레이
-        }
-    </script>
 
 </body>
 </html>
-
 
 
 
