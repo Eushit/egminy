@@ -4,71 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>egminy</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://jsdelivr.net" />
+    <!-- Futura를 완벽히 계승한 Jost 폰트의 가장 얇은 100 두께 -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
+        body, html {
+            height: 100%; width: 100%; overflow: hidden;
             background-color: #ffffff;
-            font-family: 'Pretendard', -apple-system, sans-serif;
-            color: #1d1d1f;
+            /* Jost는 Futura와 골격이 거의 일치합니다 */
+            font-family: 'Jost', 'Futura', sans-serif;
+            display: flex; justify-content: center; align-items: center;
+            /* 렌더링을 더 가늘게 만듭니다 */
+            -webkit-font-smoothing: antialiased;
         }
-        /* 제품 리스트 컨테이너 */
-        .product-list {
-            display: flex;
-            flex-direction: column;
-            gap: 30px; /* 제품 간의 간격 */
-            padding: 40px 20px;
-        }
-        /* 개별 제품 가로 레이아웃 */
-        .product-card {
-            display: flex;
-            align-items: center; /* 사진과 텍스트 중앙 정렬 */
-            gap: 20px; /* 사진과 이름 사이의 간격 */
-            cursor: pointer;
-            text-decoration: none;
-        }
-        /* 제품 사진 스타일 */
-        .product-image {
-            width: 80px; /* 사진 크기를 작고 정갈하게 조절 */
-            height: 80px;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            background-color: #f5f5f7;
-            transition: opacity 0.3s;
-        }
-        .product-card:active .product-image {
-            opacity: 0.7;
-        }
-        /* 제품 이름 스타일 */
         .product-name {
-            font-size: 1rem;
-            font-weight: 320; /* 확정하신 세련된 두께 */
+            font-size: 1.1rem;
+            font-weight: 100; /* 극강의 얇음 */
             color: #1d1d1f;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.02em; /* Futura는 자간이 좀 있어야 제맛입니다 */
+            text-transform: none;
+            user-select: none;
         }
     </style>
 </head>
 <body>
-
-    <div class="product-list">
-        <!-- 첫 번째 제품 -->
-        <div class="product-card">
-            <!-- 이미지 준비 전까지는 회색 박스로 보입니다 -->
-            <img src="1.jpeg" alt="Light Earring" class="product-image">
-            <p class="product-name">Light Earring</p>
-        </div>
-
-        <!-- 제품 추가 시 아래 블록 복사 -->
-        <!-- 
-        <div class="product-card">
-            <img src="이미지주소" class="product-image">
-            <p class="product-name">Next Product</p>
-        </div> 
-        -->
-    </div>
-
+    <div class="product-name">light earring</div>
 </body>
 </html>
-
 
 
