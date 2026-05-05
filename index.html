@@ -4,31 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>egminy</title>
-    <!-- Futura를 완벽히 계승한 Jost 폰트의 가장 얇은 100 두께 -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://jsdelivr.net" />
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body, html {
             height: 100%; width: 100%; overflow: hidden;
             background-color: #ffffff;
-            /* Jost는 Futura와 골격이 거의 일치합니다 */
-            font-family: 'Jost', 'Futura', sans-serif;
+            font-family: 'Pretendard Variable', 'Pretendard', -apple-system, sans-serif;
             display: flex; justify-content: center; align-items: center;
-            /* 렌더링을 더 가늘게 만듭니다 */
             -webkit-font-smoothing: antialiased;
         }
-        .product-name {
+        .container { text-align: center; position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+        
+        /* 공통 텍스트 스타일 */
+        .text-item {
             font-size: 1.1rem;
-            font-weight: 100; /* 극강의 얇음 */
+            font-weight: 100;
             color: #1d1d1f;
-            letter-spacing: 0.02em; /* Futura는 자간이 좀 있어야 제맛입니다 */
-            text-transform: none;
+            /* 자간을 0.12em에서 0.01em으로 좁혀 단단한 느낌을 줌 */
+            letter-spacing: 0.01em; 
+            cursor: pointer;
+            transition: opacity 0.4s ease;
             user-select: none;
+            text-decoration: none;
+            display: block;
         }
+
+        /* 메뉴 목록 스타일 */
+        .menu-list {
+            display: none;
+            flex-direction: column;
+            gap: 30px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        /* 뒤로가기 화살표 스타일 */
+        .back-btn {
+            position: absolute;
+            left: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            font-weight: 100;
+            color: #1d1d1f;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            display: none;
+            padding: 20px;
+        }
+
+        .text-item:active, .back-btn:active { opacity: 0.3; }
     </style>
 </head>
 <body>
-    <div class="product-name">light earring</div>
+
+    <div class="container">
+        <div id="back-btn" class="back-btn" onclick="hideMenu()">&lt;</div>
+        <div id="main-title" class="text-item" onclick="showMenu()">earring1</div>
+        <div id="menu-list" class="menu-list">
+            <a href="#" class="text-item">ad</a>
+            <a href="#" class="text-item">info</a>
+            <a href="#" class="text-item">buy</a>
+        </div>
+    </div>
+
+    <script>
+        const title = document.getElementById('main-title');
+        const menu = document.getElementById('menu-list');
+        const backBtn = document.getElementById('back-btn');
+
+        function showMenu() {
+            title.style.opacity = '0';
+            setTimeout(() => {
+                title.style.display = 'none';
+                menu.style.display = 'flex';
+                backBtn.style.display = 'block';
+                setTimeout(() => {
+                    menu.style.opacity = '1';
+                    backBtn.style.opacity = '1';
+                }, 50);
+            }, 400);
+        }
+
+        function hideMenu() {
+            menu.style.opacity = '0';
+            backBtn.style.opacity = '0';
+            setTimeout(() => {
+                menu.style.display = 'none';
+                backBtn.style.display = 'none';
+                title.style.display = 'block';
+                setTimeout(() => {
+                    title.style.opacity = '1';
+                }, 50);
+            }, 400);
+        }
+    </script>
 </body>
 </html>
 
